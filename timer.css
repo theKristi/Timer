@@ -1,0 +1,19 @@
+.timer
+{
+	margin-left:2%;
+	margin-top:1.5%;
+	border-radius:5px;
+	font-size:4vh;
+	text-align:center;
+	vertical-align:middle; 
+}
+.element
+{
+	float:left;
+	width:10%;
+}
+#timers
+{
+	height:20%;
+	background:gray;
+}
