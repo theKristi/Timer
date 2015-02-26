@@ -1,4 +1,6 @@
+/* An Array of background colors for GUI of timers */
 var backgrounds=["darkred","darkblue", "darkgreen", "black"];
+/* An Array of foreground colors for GUI of timers */
 var foregrounds=["red","lightblue", "lightgreen", "yellow"];
 var timers=[];
 $(document).ready(setUp); // End Document Ready
@@ -13,11 +15,12 @@ function makeTimers(number)
 	for(var i=0; i<number; i++)
 	{	$("#timers").append("<div class=element id='timer_container"+(i+1)+"'></div>")
 		//console.log("making timer "+(i+1));
-		timers[i]=new Timer(1000,i);
+		timers[i]=new Timer(100,i);
 		var timerGui="<div class='timer' id='timer"+(i+1)+"'style='background-color:"+backgrounds[i]+"; color:"+foregrounds[i]+"'>0:00.00</div><button id='timer"+(i+1)+"startButton' Style='width:100%; height:32%;'>Start Time</button></div>";
 		$("#timer_container"+(i+1)).append(timerGui);
 		$("#timer"+(i+1)+"startButton").click([$("#timer"+(i+1)+"startButton"),i],startStopTimer)
 		//$(document).on("increment",["#timer_container"+(i+1),i], updateTimer)
+		timers[i].addListener(updateTimer,[timers[i]])
 	}
 }
 function startStopTimer(event)
@@ -37,10 +40,9 @@ function startStopTimer(event)
 	}
 }
 
-
-/*function updateTimer(event)
+function updateTimer(timerArray)
 {
-	var Gui=event.data[0]
-	//console.log("GUI: "+Gui);
-	//$(Gui).text(timers[event.data[1]]);
-}*/
+	var timer=timerArray[0];
+console.log("updateTimer:"+timer)
+$("#timer"+(timer.ID+1)).text(timer);
+}

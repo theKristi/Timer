@@ -4,8 +4,8 @@
 	{
 		this.currentTime=0;
 		this.intervalTime=intrval;
-/*this.incrementEvent=new CustomEvent('increment',{detail:{timer:this}});
-document.addEventListener('increment',this.increment,false)*/
+this.incrementEvent=new CustomEvent('increment',{detail:{timer:this}});
+//document.addEventListener('increment',this.increment,false)*/
 		this.listeners=[]
 		this.ID=id;
 	this.start=function()
@@ -30,7 +30,11 @@ console.log("ID: "+timer.ID+" currTime: "+ timer.currentTime);
 	{
 //document.dispatchEvent(event);
 //console.log("dispatch inc");
-	//this.increment();
+	this.increment(event);
+	for(var i=0;i<this.listeners.length;i++)
+	{
+		this.listeners[i].call();
+	}
 	} 
 	Timer.prototype.stop=function()
 	{
@@ -62,20 +66,18 @@ console.log("ID: "+timer.ID+" currTime: "+ timer.currentTime);
 			alert("cannot add listener"+toadd+"because it is not a function" )
 		}
 	}
+	
 Function=function(fun,param)
 {
 	if(typeof fun==='function')
 	{	
-	func:fun;
-	params:param;
+	this.func=fun;
+	this.params=param;
 	}
-call: function()
+this.call=function()
 	{
+//console.log("calling function: "+this.func)
 		this.func(this.params);
 	}	
-}
-Function.prototype.call=function()
-{
-	this.func(this.params);
 }
 };
