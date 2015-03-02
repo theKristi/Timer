@@ -24,7 +24,7 @@ Timer=function(intrval,id)
 /**This Attribute is the array of listeners that are called every time the timer is incremented**/
 		this.listeners=[];
 		this.ID=id;
-		
+		timers.push(this);
 /**
 *This function starts the Timer.
 **/		

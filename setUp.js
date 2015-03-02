@@ -57,13 +57,3 @@ function startStopTimer(event)
 	}
 }
 
-/**
-*This function handles what happens to update the timer
-*@param timerArray{Array} an array of params that really just holds the timer to update.
-**/
-function updateTimer(timerArray)
-{
-	var timer=timerArray[0];
-//console.log("updateTimer:"+timer)
-	$("#timer"+(timer.ID+1)).text(timer);
-}
