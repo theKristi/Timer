@@ -125,7 +125,7 @@ Function=function(fun,param)
 	this.params=param;
 	}
 /**
-*Calls this function with the corresponding parameters defined in this.params
+*Calls this function with the corresponding params.
 **/
 this.call=function()
 	{
