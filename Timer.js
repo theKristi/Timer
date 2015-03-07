@@ -10,7 +10,7 @@ var timers=[];
 /**
 *A Constructor for a timer.
 *@param intrval{integer} the interval,in milliseconds, with which you want the timers event and listeners to fire
-*@param id{integer} the index of the timer in the global timers array
+*@param id{integer or String} the index of the timer in the global timers array
 **/
 Timer=function(intrval,id)
 {
