@@ -120,7 +120,10 @@ Timer.prototype.addListener=function(toadd,param)
 			alert("cannot add listener"+toadd+"because it is not a function" )
 		}
 }
-
+Timer.prototype.deleteListener=function(target)
+{
+	return false;
+}
 /**
 *A constructor for a Function object. A convenience wrapper object for internal use to make keeping an array of functions and parameters easier.
 *@param fun{function} the function to be kept.
