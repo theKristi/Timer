@@ -23,8 +23,17 @@ Timer=function(intrval,id)
 //document.addEventListener('increment',this.increment,false)*/
 /**This Attribute is the array of listeners that are called every time the timer is incremented**/
 		this.listeners=[];
-		this.ID=id;
-		timers.push(this);
+		if(id===undefined)
+		{
+			
+			timers.push(this);
+			this.ID=timers.length-1;
+		}
+		else
+		{
+			this.ID=id;
+			timers[id]=this;
+		}
 /**
 *This function starts the Timer.
 **/		
