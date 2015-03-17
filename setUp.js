@@ -14,7 +14,7 @@ $(document).ready(setUp); // End Document Ready
 function setUp()
 {
 makeTimers(4);
-
+//addDeleteListener();
 }
 
 /**
@@ -27,15 +27,41 @@ function makeTimers(number)
 	for(var i=0; i<number; i++)
 	{	$("#timers").append("<div class=element id='timer_container"+(i+1)+"'></div>")
 //console.log("making timer "+(i+1));
-		timers[i]=new Timer(10,i);
+		var timer=new Timer(10,"timer"+(i+1));
 		var timerGui="<div class='timer' id='timer"+(i+1)+"'style='background-color:"+backgrounds[i]+"; color:"+foregrounds[i]+"'>0:00.00</div><button id='timer"+(i+1)+"startButton' Style='width:100%; height:32%;'>Start Time</button></div>";
 		$("#timer_container"+(i+1)).append(timerGui);
-		$("#timer"+(i+1)+"startButton").click([$("#timer"+(i+1)+"startButton"),i],startStopTimer)
+		$("#timer"+(i+1)+"startButton").click([$("#timer"+(i+1)+"startButton"),timer.ID],startStopTimer)
 		//$(document).on("increment",["#timer_container"+(i+1),i], updateTimer)
-		timers[i].addListener(updateTimer,[timers[i]])
+		timer.addListener(updateTimer,[timer]);
+		addDeleteListenerButton(i,timer);
 	}
 }
-
+function addDeleteListenerButton(i,timer)
+{
+	
+	$("#buttons").append("<button id='addDeleteListenerButton"+i+"'Style='width:15%; height:64%;'> Delete Listener "+(i+1)+"</button>");
+	$("#addDeleteListenerButton"+i).click([timer,$("#addDeleteListenerButton"+i)],addDeleteListener);
+	
+}
+function addDeleteListener(event)
+{
+	var timer=event.data[0];
+	var button=event.data[1];
+	var index=parseInt(button.selector.charAt(button.selector.length-1))+1;
+	
+	if(button.text().indexOf("Delete Listener")>-1)
+	{
+		button.text('Add Listener '+index);
+		var deleted=timer.deleteListener(updateTimer);
+		console.log("deleted: "+deleted);
+	}
+	else
+	{
+		button.text('Delete Listener '+ index);
+		timer.addListener(updateTimer,[timer]);
+	}
+	
+}
 /** 
 * This function handles what happens when the user clicks the stop/start button
 * @param event{Event} The onClick event that triggered this function.
@@ -43,17 +69,17 @@ function makeTimers(number)
 function startStopTimer(event)
 {
 	var button=event.data[0];
-	var index=event.data[1];
+	var timer=timers[event.data[1]];
 	
 	if(button.text()==="Start Time")
 	{
 		button.text('Stop Time');
-		timers[index].start();
+		timer.start();
 	}
 	else
 	{
 		button.text('Start Time');
-		timers[index].stop();
+		timer.stop();
 	}
 }
 
@@ -61,5 +87,5 @@ function updateTimer(timerArray)
 {
 	var timer=timerArray[0];
 //console.log("updateTimer:"+timer)
-$("#timer"+(timer.ID+1)).text(timer);
+$("#"+timer.ID).text(timer);
 }
