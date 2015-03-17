@@ -1,3 +1,7 @@
+
+/**@Author Kristi Marks*/ 
+
+
 /**Timer.js: A Timer Class giving a timer's functionality using an observer type pattern**/
 /**
 ***TODO: Add a String Format for the toString method
