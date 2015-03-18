@@ -22,12 +22,11 @@ To add a listener to the timer you just have to call timer.addListener(function,
 ``` javascript
     var timer=new Timer(10, uniqueID);
     timer.addListener(listener,["Hello!"]);
-    
     /*now listener(array) will be called every 10 milliseconds
-    and will print "Hello" to the console*/
-    function listener(Array)
+    and will print "Hello!" to the console*/
+    function listener(parameters)
     {
-      cosole.log(Array[0])
+      console.log(parameters[0])
     }
    ```
 
