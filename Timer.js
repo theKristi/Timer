@@ -138,6 +138,7 @@ Timer.prototype.addListener=function(toadd,param)
 /**
 *This function gets rid of the last instance of the target function found in this.listeners
 *@param target{function} the function that you want to delete from this.listeners
+*@return Boolean: true if deletion was successful and false if deletion failed
 **/
 Timer.prototype.deleteListener=function(target)
 {
