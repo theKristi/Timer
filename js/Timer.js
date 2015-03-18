@@ -38,6 +38,11 @@ Timer=function(intrval,id)
 		else
 		{
 			this.ID=id;
+			if (timers[id]!==undefined)
+			{
+				alert("id passed in is not unique, so it cannot be added to the global array");
+				return;
+			}
 			timers[id]=this;
 			timers.length++;
 		}
