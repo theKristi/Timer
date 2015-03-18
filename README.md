@@ -56,7 +56,7 @@ To Stop the timer,
 * No error checking
   * I haven't gotten to it yet
 * toString method too one dimensional
-  * As of right now only the inteval 10 displays correctly. I'm looking into custom string Format settings you can specify to make this more dynamic
+  * As of right now, only the interval 10 displays correctly. I'm looking into custom string format settings you can specify to make this more dynamic
  
 ### Demo
  [Click Here](http://thekristi.github.io/Timer/) for a cool demo
