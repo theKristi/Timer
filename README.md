@@ -1,7 +1,7 @@
 # Timer
-I couldn't find a suitable Timer anywhere in javascript so I decided to make one.
+I couldn't find a suitable stopwatch type Timer anywhere in javascript so I decided to make one.
 ## How it works
-First you have to add Timer.js to your html. You can create your own css and make the Timers however you want. 
+First you have to add Timer.js to your html. You can create your own css/html and style the Timer's gui however you want. If you need a GUI that is. It will still fire fuctions on whatever interval you set.
 ### Creating the timer
  You create a timer the same way you would create any object. You have to pass the interval into the constructor. 
  The interval is how often, in milliseconds, you want the timer to change, or any other functions to fire.  
@@ -23,7 +23,7 @@ To add a listener to the timer you just have to call timer.addListener(function,
 ``` javascript
     var timer=new Timer(10, uniqueID);
     timer.addListener(listener,["Hello!"]);
-    /*now listener(parameters) will be called every 10 milliseconds
+    /*Once the timer is started listener(parameters) will be called every 10 milliseconds
     and will print "Hello!" to the console*/
     function listener(parameters)
     {
