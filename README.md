@@ -31,10 +31,15 @@ To add a listener to the timer you just have to call timer.addListener(function,
    ```
 
 ####Listener Functions
-If you want to call a fuction 
+If you want a function that has parameters to be a listener you have to specify the parameters as an array in the function definition. This is because the function parameters are saved as an array.  
 ``` javascript
-    
-   ```
+    function listener(parametersArray)
+    {
+      console.log(parametersArray[0]);
+       console.log(parametersArray[1]);
+    }
+  ```
 ###Start/Stop the timer
-\\Coming Soon
-
+//Coming Soon
+###Problems
+//Coming Soon
