@@ -17,7 +17,25 @@ First you have to add Timer.js to your html. You can create your own css and mak
    ```
 There is a global timers[] array which we use to access the timer(s) when the window calls the setInterval function. When you pass in a unique id it sets that id as the index of that timer in the timers[] array
 ###Adding/Deleting Listeners
-\\ Coming Soon
+Timer.js has its own listener handling system. Each timer has its own listeners[] Array you can add or delete Functions from.
+To add a listener to the timer you just have to call timer.addListener(function,[parameters]). For example,
+``` javascript
+    var timer=new Timer(10, uniqueID);
+    timer.addListener(listener,["Hello!"]);
+    
+    /*now listener(array) will be called every 10 milliseconds
+    and will print "Hello" to the console*/
+    function listener(Array)
+    {
+      cosole.log(Array[0])
+    }
+   ```
+
+####Listener Functions
+If you want to call a fuction 
+``` javascript
+    
+   ```
 ###Start/Stop the timer
 \\Coming Soon
 
